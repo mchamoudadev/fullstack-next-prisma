@@ -8,26 +8,26 @@ const routes = [
     {
         id: 1,
         icon: CarrotIcon,
-        label: 'Products',
-        href: '/products'
+        label: 'Product',
+        href: '/product'
     },
     {
         id: 2,
         icon: CarrotIcon,
-        label: 'Categories',
-        href: '/categories'
+        label: 'Category',
+        href: '/category'
     },
     {
         id: 3,
         icon: User2Icon,
-        label: 'Users',
-        href: '/users'
+        label: 'User',
+        href: '/user'
     },
     {
         id: 4,
         icon: ShoppingCart,
-        label: 'Orders',
-        href: '/orders'
+        label: 'Order',
+        href: '/order'
     }
 ]
 

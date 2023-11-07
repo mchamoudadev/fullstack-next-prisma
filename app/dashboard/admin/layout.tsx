@@ -14,7 +14,8 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
                 <AdminSidebar />
             </div>
 
-            <main className='md:pl-56 h-full'>
+            
+            <main className='md:pl-64 h-full mt-10 container mx-auto py-10'>
                 {children}
             </main>
 

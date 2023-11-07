@@ -1,6 +1,5 @@
 "use client";
 
-
 import { cn } from '@/lib/utils';
 import { LucideIcon } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
@@ -22,7 +21,7 @@ const SidebarItem = ({id, icon : Icon, label, href} : SidebarItemProps) => {
 
   return (
     <button 
-    onClick={()=>router.push(`.${href}`)}
+    onClick={()=>router.push(`/dashboard/admin/${href}`)}
     type='button' className={cn("flex items-center gap-x-2 text-slate-500 font-[500] pl-6 transition-all group hover:bg-main-50 hover:text-main-600", isActive && 'text-main-600 bg-main-50')}>
         <div className='flex items-center gap-x-2 py-4'>
             <Icon size={22} className={cn('text-slate-500 group-hover:text-main-600',isActive && 'text-main-600')}/>
