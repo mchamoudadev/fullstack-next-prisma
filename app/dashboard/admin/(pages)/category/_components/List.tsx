@@ -5,6 +5,8 @@ import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import React from 'react'
 import { columns } from '../columns'
+import { Button } from '@/components/ui/button'
+import { useRouter } from 'next/navigation'
 
 const List = () => {
 
@@ -15,12 +17,21 @@ const List = () => {
         retry: 3
     })
 
+    const router = useRouter()
+
     if(isLoading) {
          return <h1>Loading...</h1>
     }
     
     return (
-        <div>
+        <div className='my-4 space-y-4 sm:p-6 lg:p-2'>
+            <div className='flex justify-end'>
+                <Button variant={'outline'}
+                onClick={()=> router.push('/dashboard/admin/category/new')}
+                >
+                    Create New Category
+                </Button>
+            </div>
             <DataTable columns={columns} data={data}/>
         </div>
     )

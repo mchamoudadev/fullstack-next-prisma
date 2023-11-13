@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
-import { categorySchema } from "./validationSchema";
+import { categorySchema } from "../../../validationSchema/categorySchema";
 import prisma from '../../../../prisma/client'
 
 export async function POST(request: NextRequest) {
 
     // register new category
 
-    if(request.headers.get('content-length') === '0'){
-        return NextResponse.json({error: "you have to provide body information"}, { status: 400 })
+    if (request.headers.get('content-length') === '0') {
+        return NextResponse.json({ error: "you have to provide body information" }, { status: 400 })
     }
 
     const body = await request.json();
@@ -31,7 +31,10 @@ export async function GET(request: NextRequest) {
 
     // get all categories
     // return NextResponse.json("erroor", { status: 500 })
-    const categories = await prisma.category.findMany();
+    const categories = await prisma.category.findMany(
+        { orderBy: { created: "desc" } }
+
+    );
     return NextResponse.json(categories, { status: 200 })
 
 }
