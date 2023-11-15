@@ -63,10 +63,10 @@ model Category {
   name    String
   created DateTime  @default(now())
   updated DateTime  @updatedAt
-  Proudct Proudct[]
+  Product Product[]
 }
 
-model Proudct {
+model Product {
   id            String   @id @default(auto()) @map("_id") @db.ObjectId
   name          String
   categoryId    String   @db.ObjectId
