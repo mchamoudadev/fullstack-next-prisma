@@ -77,6 +77,6 @@ model Product {
   description   String
   stockQuantity Int
   status        String   @default("visible")
-  created DateTime  @default(now())
-  updated DateTime  @updatedAt
+  created       DateTime @default(now())
+  updated       DateTime @updatedAt
 }

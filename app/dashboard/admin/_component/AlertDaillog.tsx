@@ -19,7 +19,7 @@ import { useRouter } from 'next/navigation'
 import { useState } from "react"
 import { Loader2 } from "lucide-react"
 
-export const AlertDialogBox = ({ id }: { id: string }) => {
+export const AlertDialogBox = ({ id, schema }: { id: string, schema: string }) => {
     const queryClient = useQueryClient();
 
     const router = useRouter();
@@ -29,8 +29,8 @@ export const AlertDialogBox = ({ id }: { id: string }) => {
     const handleDelete = async () => {
         setLoading(true)
         try {
-            await axios.delete(`${API}/admin/category/${id}`);
-            queryClient.invalidateQueries({ queryKey: ["category"] })
+            await axios.delete(`${API}/admin/${schema}/${id}`);
+            queryClient.invalidateQueries({ queryKey: [schema] })
             toast.success("Successfully deleted");
             // router.push('/dashboard/admin/category')
             setLoading(false)
