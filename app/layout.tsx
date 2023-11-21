@@ -5,6 +5,7 @@ import './globals.css'
 import NextAuthProvider from './providers/NextAuthProvider'
 import ReactQueryClientProvider from './providers/ReactQueryClientProvider'
 import ToastProvider from './providers/ToastProvider'
+import Navbar from './_components/Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,8 +24,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <ReactQueryClientProvider>
           <NextAuthProvider>
+            <Navbar />
             {children}
-            <ToastProvider/>
+            <ToastProvider />
           </NextAuthProvider>
         </ReactQueryClientProvider>
       </body>
