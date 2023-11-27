@@ -1,13 +1,18 @@
 "use client"
 import { Input } from '@/components/ui/input'
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Search, ShoppingBag } from 'lucide-react'
 import Link from 'next/link'
 import React, { useState } from 'react'
+import Cart from './Cart'
+import { useShoppingCart } from '@/hooks/useCart'
 
 const Navbar = () => {
 
 
-    const [searchValue, setSearchValue] = useState("")
+    const [searchValue, setSearchValue] = useState("");
+
+    const { cartItems } = useShoppingCart()
 
     return (
         <nav className="bg-gray-800 text-white p-4">
@@ -31,11 +36,24 @@ const Navbar = () => {
                 </div>
 
                 <div className="flex justify-end items-center flex-1">
-                    <ShoppingBag />
+
+                    <Sheet>
+                        <SheetTrigger className='pr-4 hover:opacity-75 transition'>
+                            <div className="group -m-2 flex items-center p-2">
+                                <ShoppingBag
+                                    className="h-6 w-6 flex-shrink-0 text-gray-50 group-hover:text-gray-100"
+                                    aria-hidden="true"
+                                />
+
+                                <span className="ml-2 text-sm font-medium text-gray-100 group-hover:text-gray-100">{cartItems?.length}</span>
+                            </div>
+                        </SheetTrigger>
+                        <SheetContent className='mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:px-4'>
+                            <Cart />
+                        </SheetContent>
+                    </Sheet>
                 </div>
             </div>
-
-
         </nav>
     )
 }

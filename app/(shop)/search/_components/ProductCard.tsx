@@ -4,7 +4,7 @@ import React from 'react'
 
 const ProductCard = ({ product }: { product: Product }) => {
     return (
-        <Link href={``} key={product.id} className="group relative">
+        <Link href={`/product/${product.id}`} key={product.id} className="group relative">
             <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                 <img
                     src={product.thumbnail}
