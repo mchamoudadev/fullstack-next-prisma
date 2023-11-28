@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useShoppingCart } from '@/hooks/useCart'
 import React from 'react'
+import PaymentDialog from './PaymentDialog'
 
 const Cart = () => {
 
@@ -16,7 +17,7 @@ const Cart = () => {
                 <div>
                     <h1 className="text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Shopping Cart</h1>
 
-                    <form className="mt-12">
+                    <div className="mt-12">
                         <section aria-labelledby="cart-heading">
                             <h2 id="cart-heading" className="sr-only">
                                 Items in your shopping cart
@@ -89,25 +90,18 @@ const Cart = () => {
                             </div>
 
                             <div className="mt-10">
-                                <button
+                                {/* <button
                                     type="submit"
                                     className="w-full rounded-md border border-transparent bg-main-600 px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-main-700 focus:outline-none focus:ring-2 focus:ring-main-500 focus:ring-offset-2 focus:ring-offset-gray-50"
                                 >
                                     Checkout
-                                </button>
-
-                                {/* <Button size={'lg'} /> */}
-
+                                </button> */}
+                                <PaymentDialog />
                             </div>
-
                         </section>
-
-                    </form>
-
+                    </div>
                 </div>
-
             </main>
-
         </div>
     )
 }
